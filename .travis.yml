@@ -1,0 +1,8 @@
+sudo: required
+language: ruby
+cache: bundler
+service: docker
+before_install:
+    - docker build -t web .
+script:
+    - bundle exec rspec
