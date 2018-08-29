@@ -92,3 +92,25 @@ Package "git"
 Finished in 1.13 seconds (files took 0.89826 seconds to load)
 1 example, 0 failures
 ```
+
+# Travis CI でテストできるようにする
+
+Travice CIの設定をしましょう。
+.trais.ymlを作って
+```
+sudo: required
+language: ruby
+cache: bundler
+service: docker
+before_install:
+    - docker build -t web .
+script:
+    - bundle exec rspec
+```
+
+## error
+![](/png/travis_error.png)
+
+## pass
+![](/png/travis_passed.png)
+=======
